@@ -1,0 +1,21 @@
+cxx = clang++
+
+rule cxx
+  command = $cxx -MMD -MF $out.d $includes $cflags $cflags_cxx -c $in -o $out
+  description = CXX $out
+  depfile = $out.d
+  deps = gcc
+
+rule link
+  command = $cxx $ldflags -o $out $in $libs
+  description = LINK $out
+
+includes = -I.
+cflags = -g -pipe
+
+build out/obj/fix_application_impl.o: cxx client/fix_application_impl.cc
+build out/obj/trade_client_main.o: cxx client/trade_client_main.cc
+
+build out/trade_client: link out/obj/trade_client_main.o $
+                             out/obj/fix_application_impl.o
+  libs = -lquickfix
