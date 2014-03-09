@@ -10,7 +10,7 @@
 #include <quickfix/fix42/MarketDataSnapshotFullRefresh.h>
 #include <quickfix/fix42/NewOrderSingle.h>
 
-FIXApplicationImpl::FIXApplicationImpl(const Strategy& strategy)
+FIXApplicationImpl::FIXApplicationImpl(const VwapStrategy& strategy)
     : order_id_(0),
       strategy_(strategy) {}
 

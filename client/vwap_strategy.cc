@@ -1,10 +1,11 @@
-#include "strategy.h"
+#include "vwap_strategy.h"
 
 #include <stdio.h>
 
-Strategy::Strategy(const std::string& symbol) : symbol_(symbol), vwap_(3) {}
+VwapStrategy::VwapStrategy(const std::string& symbol)
+    : symbol_(symbol), vwap_(3) {}
 
-void Strategy::DumpTrade(double price, double quantity) {
+void VwapStrategy::DumpTrade(double price, double quantity) {
   vwap_.AddTrade(price, quantity);
 
   const double current_vwap = vwap_.Calculate();
