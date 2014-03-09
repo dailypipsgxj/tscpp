@@ -1,5 +1,5 @@
-#ifndef WORKSPACE_H_
-#define WORKSPACE_H_
+#ifndef CLIENT_FIX_APPLICATION_IMPL_H_
+#define CLIENT_FIX_APPLICATION_IMPL_H_
 
 #include <quickfix/Application.h>
 #include <quickfix/MessageCracker.h>
@@ -84,4 +84,4 @@ class FIXApplicationImpl : public FIX::Application, public FIX::MessageCracker {
   FIX::ThreadedSocketInitiator* socket_initiator_;
 };
 
-#endif  // WORKSPACE_H_
+#endif  // CLIENT_FIX_APPLICATION_IMPL_H_
