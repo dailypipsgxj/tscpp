@@ -1,5 +1,4 @@
-#include <iostream>
-#include <string>
+#include <string.h>
 
 #include "fix_application_impl.h"
 
@@ -22,8 +21,8 @@ int main(int argc, char* argv[]) {
   // Quickfix is now running in the background, so we just wait here until the
   // user hits ENTER to shut us down.
   fprintf(stdout, "Hit [ENTER] to quit...\n");
-  std::string input;
-  std::getline(std::cin, input);
+  char s[100];
+  fgets(s, sizeof(s), stdin);
 
   return 0;
 }
