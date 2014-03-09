@@ -12,9 +12,8 @@ void VwapStrategy::DumpTrade(double price, double quantity) {
 
   const double current_vwap = vwap_.Calculate();
 
-  printf("VWAP %lu = %.2f\n", vwap_.num_trades(), current_vwap);
-
-  printf("%.2f %.0f\n", price, quantity);
+  printf("%.2f/%.0f VWAP %lu = %.2f\n", price, quantity, vwap_.num_trades(),
+         current_vwap);
 
   if (price < (current_vwap - 1)) {
     printf("SELL!!!\n");
