@@ -1,6 +1,7 @@
 #include <string.h>
 
 #include "fix_application_impl.h"
+#include "strategy.h"
 
 int main(int argc, char* argv[]) {
   if (argc != 3) {
@@ -8,7 +9,8 @@ int main(int argc, char* argv[]) {
     exit(EXIT_FAILURE);
   }
 
-  FIXApplicationImpl fix_app;
+  Strategy strategy(argv[2]);
+  FIXApplicationImpl fix_app(strategy);
   fix_app.Init(argv[1]);
 
   while (true) {

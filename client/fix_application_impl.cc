@@ -10,7 +10,9 @@
 #include <quickfix/fix42/MarketDataSnapshotFullRefresh.h>
 #include <quickfix/fix42/NewOrderSingle.h>
 
-FIXApplicationImpl::FIXApplicationImpl() : order_id_(0) {}
+FIXApplicationImpl::FIXApplicationImpl(const Strategy& strategy)
+    : order_id_(0),
+      strategy_(strategy) {}
 
 FIXApplicationImpl::~FIXApplicationImpl() {
   fprintf(stdout, "Shutting down...\n");
@@ -190,7 +192,7 @@ void FIXApplicationImpl::onMessage(
   msg.getField(qty);
 
   if (type.getValue() == FIX::MDEntryType_TRADE) {
-    printf("%.2f %.0f\n", price.getValue(), qty.getValue());
+    strategy_.DumpTrade(price.getValue(), qty.getValue());
   }
 }
 
