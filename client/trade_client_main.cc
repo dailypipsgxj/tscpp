@@ -10,7 +10,7 @@ int main(int argc, char* argv[]) {
   }
 
   VwapStrategy strategy(argv[2]);
-  FIXApplicationImpl fix_app(strategy);
+  FIXApplicationImpl fix_app(&strategy);
   fix_app.Init(argv[1]);
 
   while (true) {

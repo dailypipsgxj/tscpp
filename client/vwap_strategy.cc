@@ -5,6 +5,8 @@
 VwapStrategy::VwapStrategy(const std::string& symbol)
     : symbol_(symbol), vwap_(3) {}
 
+VwapStrategy::~VwapStrategy() {}
+
 void VwapStrategy::DumpTrade(double price, double quantity) {
   vwap_.AddTrade(price, quantity);
 

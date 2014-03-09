@@ -3,15 +3,18 @@
 
 #include <string>
 
+#include "strategy.h"
 #include "vwap.h"
 
-class VwapStrategy {
+class VwapStrategy : public Strategy {
  public:
   explicit VwapStrategy(const std::string& symbol);
-
-  void DumpTrade(double price, double quantity);
+  virtual ~VwapStrategy();
 
  private:
+  // Strategy:
+  virtual void DumpTrade(double price, double quantity) /*OVERRIDE*/;
+
   std::string symbol_;
 
   Vwap vwap_;

@@ -10,7 +10,7 @@
 #include <quickfix/fix42/MarketDataSnapshotFullRefresh.h>
 #include <quickfix/fix42/NewOrderSingle.h>
 
-FIXApplicationImpl::FIXApplicationImpl(const VwapStrategy& strategy)
+FIXApplicationImpl::FIXApplicationImpl(Strategy* strategy)
     : order_id_(0),
       strategy_(strategy) {}
 
@@ -192,7 +192,7 @@ void FIXApplicationImpl::onMessage(
   msg.getField(quantity);
 
   if (type.getValue() == FIX::MDEntryType_TRADE) {
-    strategy_.DumpTrade(price.getValue(), quantity.getValue());
+    strategy_->DumpTrade(price.getValue(), quantity.getValue());
   }
 }
 

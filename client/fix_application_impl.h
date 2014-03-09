@@ -5,7 +5,7 @@
 #include <quickfix/MessageCracker.h>
 #include <quickfix/Mutex.h>
 
-#include "vwap_strategy.h"
+#include "strategy.h"
 
 namespace FIX {
 class FileLogFactory;
@@ -23,7 +23,7 @@ class Order {
 // send orders.
 class FIXApplicationImpl : public FIX::Application, public FIX::MessageCracker {
  public:
-  explicit FIXApplicationImpl(const VwapStrategy& strategy);
+  explicit FIXApplicationImpl(Strategy* strategy);
   virtual ~FIXApplicationImpl();
 
   // Establishes FIX session.
@@ -74,7 +74,7 @@ class FIXApplicationImpl : public FIX::Application, public FIX::MessageCracker {
   FIX::Mutex mutex_;
   int order_id_;
 
-  VwapStrategy strategy_;
+  Strategy* strategy_;
 
   FIX::SessionID market_data_session_id_;
   FIX::SessionID order_session_id_;
