@@ -5,6 +5,7 @@
 #include <quickfix/MessageCracker.h>
 #include <quickfix/Mutex.h>
 
+#include "order.h"
 #include "strategy.h"
 
 namespace FIX {
@@ -13,11 +14,6 @@ class MessageStoreFactory;
 class SessionSettings;
 class ThreadedSocketInitiator;
 }
-
-class Order {
- public:
-   enum Side { SIDE_BUY, SIDE_SELL };
-};
 
 // A simple interface that allows our Strategy to subscribe to market data and
 // send orders.
