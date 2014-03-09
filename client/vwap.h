@@ -13,7 +13,7 @@ class Vwap {
  public:
   Vwap(size_t num_trades_per_period);
 
-  void AddTrade(double price, double qty);
+  void AddTrade(double price, double quantity);
 
   double Calculate();
 

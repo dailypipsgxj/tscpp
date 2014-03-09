@@ -56,7 +56,7 @@ void FIXApplicationImpl::RequestMarketData(const std::string& symbol) {
 
 void FIXApplicationImpl::SendOrder(const std::string& symbol,
                                    Order::Side side,
-                                   double qty,
+                                   double quantity,
                                    double limit_price) {
   FIX42::NewOrderSingle new_order(
       GetNextOrderId(),
@@ -67,7 +67,7 @@ void FIXApplicationImpl::SendOrder(const std::string& symbol,
       FIX::OrdType_MARKET);
 
   new_order.set(FIX::OrdType(FIX::OrdType_LIMIT));
-  new_order.set(FIX::OrderQty(qty));
+  new_order.set(FIX::OrderQty(quantity));
   new_order.set(FIX::Price(limit_price));
 
   FIX::Session::sendToTarget(new_order, order_session_id_);
@@ -185,14 +185,14 @@ void FIXApplicationImpl::onMessage(
     const FIX::SessionID&) {
   FIX::MDEntryType type;
   FIX::MDEntryPx price;
-  FIX::MDEntrySize qty;
+  FIX::MDEntrySize quantity;
 
   msg.getField(type);
   msg.getField(price);
-  msg.getField(qty);
+  msg.getField(quantity);
 
   if (type.getValue() == FIX::MDEntryType_TRADE) {
-    strategy_.DumpTrade(price.getValue(), qty.getValue());
+    strategy_.DumpTrade(price.getValue(), quantity.getValue());
   }
 }
 

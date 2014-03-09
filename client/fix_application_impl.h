@@ -37,7 +37,7 @@ class FIXApplicationImpl : public FIX::Application, public FIX::MessageCracker {
   // Send a limit order.
   void SendOrder(const std::string& symbol,
                  Order::Side side,
-                 double qty,
+                 double quantity,
                  double limit_price);
 
  private:

@@ -3,8 +3,8 @@
 Vwap::Vwap(size_t num_trades_per_period)
     : num_trades_per_period_(num_trades_per_period) {}
 
-void Vwap::AddTrade(double price, double qty) {
-  trades_.push_back(Trade(price, qty));
+void Vwap::AddTrade(double price, double quantity) {
+  trades_.push_back(Trade(price, quantity));
 
   while (trades_.size() > num_trades_per_period_)
     trades_.pop_front();
