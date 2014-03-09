@@ -12,10 +12,20 @@ namespace TradeClient
                 Environment.Exit(-1);
             }
 
+            Console.WriteLine("Press [ENTER] to quit...");
+
             FIXApplicationImpl fix_app = new FIXApplicationImpl();
             fix_app.Init(args[0]);
 
-            Console.WriteLine("Press [ENTER] to quit...");
+            while (true)
+            {
+                if (fix_app.IsLogged())
+                {
+                    fix_app.RequestMarketData(args[1]);
+                    break;
+                }
+            }
+
             Console.ReadLine();
         }
     }
