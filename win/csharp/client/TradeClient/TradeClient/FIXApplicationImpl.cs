@@ -23,7 +23,7 @@ namespace TradeClient
 
         public void fromAdmin(Message msg, SessionID value)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void fromApp(Message msg, SessionID value)
@@ -33,12 +33,12 @@ namespace TradeClient
 
         public void onCreate(SessionID value)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void onLogon(SessionID value)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("[onLogon] {0}", value.ToString());
         }
 
         public void onLogout(SessionID value)
@@ -48,7 +48,7 @@ namespace TradeClient
 
         public void toAdmin(Message msg, SessionID value)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void toApp(Message msg, SessionID value)
