@@ -16,8 +16,8 @@ void VwapStrategy::DumpTrade(double price, double quantity) {
          current_vwap);
 
   if (price < (current_vwap - 1)) {
-    printf("SELL!!!\n");
+    printf("SELL SIGNAL!\n");
   } else if (price > (current_vwap + 1)) {
-    printf("BUY!!!\n");
+    printf("BUY SIGNAL!\n");
   }
 }
