@@ -1,0 +1,1 @@
+@cl /nologo /MD /EHsc /I .\third_party\quickfix\include ..\client\fix_application_impl.cc ..\client\strategy.cc ..\client\vwap.cc ..\client\trade_client_main.cc /link .\third_party\quickfix\lib\quickfix.lib /out:..\out\trade_client.exe
